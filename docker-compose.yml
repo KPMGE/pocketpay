@@ -7,4 +7,5 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 1234
       MYSQL_USER: pocketpay
+      MYSQL_DATABASE: pocketpay
       MYSQL_PASSWORD: 1234
