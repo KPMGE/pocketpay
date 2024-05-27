@@ -17,6 +17,13 @@ public class WalletType {
     @Column(name = "description")
     private String description;
 
+    public WalletType() {}
+
+    public WalletType(Long id, String description) {
+        this.id = id;
+        this.description = description;
+    }
+
     public Long getId() {
         return id;
     }
@@ -31,5 +38,23 @@ public class WalletType {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public enum Variants {
+        USER(1L, "USER"),
+        MERCHANT(2L, "MERCHANT");
+
+        Variants(Long id, String description) {
+            this.id = id;
+            this.description = description;
+        }
+
+        private Long id;
+        private String description;
+
+        public WalletType get() {
+            return new WalletType(id, description);
+        }
+
     }
 }
