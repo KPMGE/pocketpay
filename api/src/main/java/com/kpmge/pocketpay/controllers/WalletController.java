@@ -9,6 +9,8 @@ import com.kpmge.pocketpay.controllers.dto.CreateWalletDto;
 import com.kpmge.pocketpay.entities.Wallet;
 import com.kpmge.pocketpay.services.WalletService;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class WalletController {
     private final WalletService walletService;
@@ -18,7 +20,7 @@ public class WalletController {
     }
 
     @PostMapping("/wallets")
-    public ResponseEntity<Wallet> createWallet(@RequestBody CreateWalletDto dto) {
+    public ResponseEntity<Wallet> createWallet(@RequestBody @Valid CreateWalletDto dto) {
         var wallet = walletService.createWallet(dto);
         return ResponseEntity.ok(wallet);
     }
